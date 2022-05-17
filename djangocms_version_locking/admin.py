@@ -6,6 +6,12 @@ class VersionLockAdminMixin(VersioningAdminMixin):
     Mixin providing versioning functionality to admin classes of
     version models.
     """
+    lock_display_field = "name"
+
+    def get_list_display(self, request):
+        return (
+            "nr",
+        )
 
     def has_change_permission(self, request, obj=None):
         """
